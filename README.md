@@ -145,7 +145,7 @@ pnpm install
 cp .env.example .env.local   # then fill it in
 pnpm db:push                 # apply the schema
 pnpm db:seed                 # demo leads
-pnpm dev                     # http://localhost:3000
+pnpm dev                     # serves on $BASE_URL (default in .env.example)
 ```
 
 It runs with **no API key at all** — leave `AI_PROVIDER="stub"` and the whole journey
@@ -168,16 +168,14 @@ deployment, the environment-variable table and the failover reasoning are in
 | `src/lib/pipeline/` | Intake, analyst, rubric, scoring, writer, advisor |
 | `brief/` | The governing brief the build was judged against |
 | `docs/submission/` | Judges walkthrough, pitch deck, project links, summary |
-| `docs/` | **The UI template vendor's own docs**, not this project's — see below |
 | `HANDOFF.md` | Project status, and the history behind the shape of the repo |
 
-Two notes that save a wrong turn:
+One note that saves a wrong turn:
 
-- **`docs/` is third-party.** It is the VitePress documentation shipped with the
-  upstream dashboard template and describes *that*, not this application.
 - **[`lordgen-brightpath-backend`](https://github.com/Kikobazz123/lordgen-brightpath-backend)
   is a frozen snapshot** of the first build session, kept as a record. This repo
-  contains that backend byte-identical plus everything since. Do not develop there.
+  started from that backend and has reworked it since (auth, rate limiting,
+  mail, failover, the leads UI). Do not develop there.
 
 ---
 

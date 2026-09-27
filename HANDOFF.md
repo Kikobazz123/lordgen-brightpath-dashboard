@@ -61,7 +61,7 @@ nextjs-version, MIT).
 
 ```bash
 pnpm install
-pnpm dev                 # http://localhost:3000
+pnpm dev                 # serves on $BASE_URL (default in .env.example)
 
 pnpm verify:scoring      # 18 checks — no database, no network, no key
 pnpm verify:journey      # 20 checks against a real database, self-cleaning
