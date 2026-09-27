@@ -17,7 +17,7 @@ pre-filled, so it is one button press. No credentials to be told, none to invent
 Built by **[Lordmark Dorgu](https://github.com/Kikobazz123)** for AI BuildFest 2026 ·
 Track 1, Case Study 2 · BuildFest ID BF-0976
 
-<!-- TODO: add screenshot of /leads or a lead's detail page -->
+![The leads workspace: pipeline tiles, SLA clock and the triage list](docs/screenshots/leads.png)
 
 **Stack:** Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS 4 + shadcn/ui ·
 Neon Postgres via Drizzle ORM · Zod · Gemini / Groq / OpenRouter / Anthropic with
