@@ -1,5 +1,7 @@
 # BrightPath — AI Sales Assistant
 
+[![CI](https://github.com/Kikobazz123/lordgen-brightpath-dashboard/actions/workflows/ci.yml/badge.svg)](https://github.com/Kikobazz123/lordgen-brightpath-dashboard/actions/workflows/ci.yml)
+
 A sales assistant for **BrightPath Solutions**, a firm selling software and
 professional services to small and mid-sized businesses. Leads arrive from five
 channels and none of those channels is a queue, so the expensive ones go cold
@@ -12,7 +14,14 @@ status a human still owns.
 **Live → <https://brightpath-dashboard.vercel.app>** — the sign-in arrives
 pre-filled, so it is one button press. No credentials to be told, none to invent.
 
-Built for AI BuildFest 2026 · Track 1, Case Study 2 · BuildFest ID BF-0976
+Built by **[Lordmark Dorgu](https://github.com/Kikobazz123)** for AI BuildFest 2026 ·
+Track 1, Case Study 2 · BuildFest ID BF-0976
+
+<!-- TODO: add screenshot of /leads or a lead's detail page -->
+
+**Stack:** Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS 4 + shadcn/ui ·
+Neon Postgres via Drizzle ORM · Zod · Gemini / Groq / OpenRouter / Anthropic with
+failover · Nodemailer (Gmail SMTP) · Vitest · GitHub Actions · Vercel
 
 ---
 
@@ -122,12 +131,25 @@ capture → intake → analyst → scoring/rubric → writer → advisor → sta
 
 ---
 
-## Verification — 60 checks, all green
+## Tests
 
 ```bash
-pnpm verify              # scoring + failover + journey
-pnpm verify:scoring      # 28 checks — no database, no network, no key
-pnpm verify:failover     # 12 checks — chain routing, no keys needed
+pnpm test                # Vitest: rubric, gates, evidence contract, draft routing,
+                         # provider failover, intake and the SLA clock
+pnpm lint
+pnpm typecheck
+```
+
+The unit tests need no database, network or API key, and CI runs all three on every
+push. The rubric's claims are the ones a sceptical reader should check, so they are
+tests rather than README assertions: identical evidence scores identically across 200
+runs, order does not matter, every point traces to a named rubric line, and a value
+without a quoted source fails the contract.
+
+Integration checks that need real infrastructure stay as scripts:
+
+```bash
+pnpm verify              # the pure suites as scripts (scoring + failover)
 pnpm verify:journey      # 20 checks against a real database, self-cleaning
 pnpm verify:provider     # one real AI call; exits non-zero if it hit the stub
 ```
