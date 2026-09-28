@@ -21,12 +21,18 @@ export const siteConfig = {
    */
   author: "Lordmark Dorgu",
 
-  email: "Zaxellimited360@gmail.com",
+  email: "zaxellimited360@gmail.com",
 
-  /** The signed-in account shown in the sidebar footer. Demo data. */
+  /**
+   * The signed-in account shown in the sidebar footer. Everyone enters through
+   * the demo sign-in, so this is that account, not the builder's contact
+   * address (which is `email` above). The sidebar is a client component and the
+   * session cookie is httpOnly, so it mirrors demoSignIn.email rather than
+   * reading the cookie; if DEMO_SIGNIN_EMAIL is overridden, update this too.
+   */
   user: {
-    name: "Brightpath Solutions",
-    email: "Zaxellimited360@gmail.com",
+    name: "Demo account",
+    email: "Judges@buildfest.com",
     avatar: "",
   },
 
@@ -46,7 +52,7 @@ export const siteConfig = {
   headerLinks: [
     { label: "Home", href: "/landing", external: false },
     { label: "Pricing", href: "/pricing", external: false },
-    { label: "Contact", href: "mailto:Zaxellimited360@gmail.com", external: true },
+    { label: "Contact", href: "mailto:zaxellimited360@gmail.com", external: true },
   ],
 } as const
 
