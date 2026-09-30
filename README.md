@@ -17,6 +17,10 @@ pre-filled, so it is one button press. No credentials to be told, none to invent
 Built by **[Lordmark Dorgu](https://github.com/Kikobazz123)** for AI BuildFest 2026 ·
 Track 1, Case Study 2 · BuildFest ID BF-0976
 
+[![Watch the 32-second demo](docs/video/demo-poster.jpg)](docs/video/demo.mp4)
+
+*32-second walkthrough (click to play). Below: the live leads workspace.*
+
 ![The leads workspace: pipeline tiles, SLA clock and the triage list](docs/screenshots/leads.png)
 
 **Stack:** Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS 4 + shadcn/ui ·
